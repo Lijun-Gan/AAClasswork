@@ -77,7 +77,7 @@ class Map
     end 
 
     def get(key)
-        @arr.each{|sub| return sub if sub.first == key}
+        @arr.each{|sub| return sub.last if sub.first == key}
         "key is not exit"
     end 
 

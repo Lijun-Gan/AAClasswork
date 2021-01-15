@@ -14,13 +14,20 @@ class Stack
     end 
 
     def peek
-        @stack.first
+        @stack.last
     end 
 
+    def inspect
+        "#<Stack: #{self.object_id}>"
+    end 
+
+    private
+    attr_reader :stack
 end 
 
 stack1 = Stack.new
 stack1.push(1)
+p stack1
 stack1.push(2)
 stack1.push(3)
 p stack1
@@ -37,7 +44,7 @@ class Queue
         @queue = []
     end 
 
-    def enqueue(el)
+    def enqueue(*el)
         @queue.push(el)
     end 
 
@@ -92,7 +99,7 @@ class Map
     end
 
     def show
-        @arr
+        @arr.dup
     end 
 end 
 

@@ -100,6 +100,7 @@ class Map
 
     def show
         @arr.dup
+        
     end 
 end 
 

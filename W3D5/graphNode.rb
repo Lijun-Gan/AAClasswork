@@ -7,26 +7,62 @@ class GraphNode
         self.val = val
         self.neighbors = []
     end 
+
+    # def add_neighbor(node)
+    #     self.neighbors << node
+    # end
     
     def inspect
         val
     end 
 end 
 
+#questions: a nil return result rest bfs nil ???????
+# [b, c, e]
+# "bfs(a, 'b') => b"
+# [c, e]
+# [[e], #<Set: {a, c}>]
+# [e, b, d]
+# [[b, d], #<Set: {a, c, e}>]
+# [b, d]
+# [[d], #<Set: {a, c, e, b}>]
+# [d]
+# [[], #<Set: {a, c, e, b, d}>]
+# "bfs(a, 'f') => "
+# "bfs(a, 'b') => "
+# "bfs(a, 'd') => "
+
 def bfs(starting_node, target_value)
-    visited = Set[starting_node]
+    visited = Set.new
+    visited.add(starting_node)
     nodes = starting_node.neighbors
     until nodes.empty?
+        # p [nodes,visited]
         node = nodes.shift
+        # puts node.val
         return node.val if node.val == target_value
         visited.add(node)
+        # p [nodes ,visited]
         node.neighbors.each do |neighbor|
             nodes << neighbor unless (visited.include?(neighbor))
-        end 
-        
+        end  
     end 
     nil 
 end
+
+# def bfs(starting_node, target_value)
+#     visited = Set.new
+#     nodes = [starting_node]
+#     until nodes.empty?
+#         node = nodes.shift
+#         unless visited.include?(node)
+#             return node.val if node.val == target_value
+#             visited.add(node)
+#             nodes += node.neighbors
+#         end 
+#     end 
+#     nil
+# end 
 
 def dfs(node, target, visited = Set.new())
 
@@ -52,73 +88,24 @@ c.neighbors = [b, d]
 e.neighbors = [a]
 f.neighbors = [e]
 
-p bfs(a, "b")
-
-a = GraphNode.new('a')
-b = GraphNode.new('b')
-c = GraphNode.new('c')
-d = GraphNode.new('d')
-e = GraphNode.new('e')
-f = GraphNode.new('f')
-a.neighbors = [b, c, e]
-c.neighbors = [b, d]
-e.neighbors = [a]
-f.neighbors = [e]
-
-p bfs(a, "f")
-
-a = GraphNode.new('a')
-b = GraphNode.new('b')
-c = GraphNode.new('c')
-d = GraphNode.new('d')
-e = GraphNode.new('e')
-f = GraphNode.new('f')
-a.neighbors = [b, c, e]
-c.neighbors = [b, d]
-e.neighbors = [a]
-f.neighbors = [e]
-
-p bfs(f, "a")
-
-puts "_" * 30
-
-a = GraphNode.new('a')
-b = GraphNode.new('b')
-c = GraphNode.new('c')
-d = GraphNode.new('d')
-e = GraphNode.new('e')
-f = GraphNode.new('f')
-a.neighbors = [b, c, e]
-c.neighbors = [b, d]
-e.neighbors = [a]
-f.neighbors = [e]
-
-p dfs(a, "b")
-
-a = GraphNode.new('a')
-b = GraphNode.new('b')
-c = GraphNode.new('c')
-d = GraphNode.new('d')
-e = GraphNode.new('e')
-f = GraphNode.new('f')
-a.neighbors = [b, c, e]
-c.neighbors = [b, d]
-e.neighbors = [a]
-f.neighbors = [e]
-
-p dfs(c, "e")
+# puts
+# p "bfs(a, 'b') => #{bfs(a, "b")}"
+# puts
+# p "bfs(a, 'f') => #{bfs(a, "f")}"
+# puts
+# p "bfs(a, 'b') => #{bfs(a, "b")}"
+# p "bfs(a, 'd') => #{bfs(a, "d")}"
 
 
-a = GraphNode.new('a')
-b = GraphNode.new('b')
-c = GraphNode.new('c')
-d = GraphNode.new('d')
-e = GraphNode.new('e')
-f = GraphNode.new('f')
-a.neighbors = [b, c, e]
-c.neighbors = [b, d]
-e.neighbors = [a]
-f.neighbors = [e]
+puts
+p "dfs(a, 'b') => #{dfs(a, "b")}"
+puts
+p "dfs(a, 'f') => #{dfs(a, "f")}"
+puts
+p "dfs(a, 'b') => #{dfs(a, "b")}"
+p "dfs(a, 'd') => #{dfs(a, "d")}"
 
-p dfs(e, "d")
+
+
+
 

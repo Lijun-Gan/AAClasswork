@@ -17,25 +17,10 @@ class GraphNode
     end 
 end 
 
-#questions: a nil return result rest bfs nil ???????
-# [b, c, e]
-# "bfs(a, 'b') => b"
-# [c, e]
-# [[e], #<Set: {a, c}>]
-# [e, b, d]
-# [[b, d], #<Set: {a, c, e}>]
-# [b, d]
-# [[d], #<Set: {a, c, e, b}>]
-# [d]
-# [[], #<Set: {a, c, e, b, d}>]
-# "bfs(a, 'f') => "
-# "bfs(a, 'b') => "
-# "bfs(a, 'd') => "
-
 def bfs(starting_node, target_value)
     visited = Set.new
     visited.add(starting_node)
-    nodes = starting_node.neighbors
+    nodes = starting_node.neighbors.dup
     until nodes.empty?
         # p [nodes,visited]
         node = nodes.shift

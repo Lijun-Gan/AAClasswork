@@ -28,15 +28,21 @@ describe Dessert do
 
   describe "#add_ingredient" do
     it "adds an ingredient to the ingredients array" do 
-      cookie.add_ingredient("sugar")
-      expect(cookie.ingredients).to eq(["sugar"])
+      cookie.add_ingredient("butter")
+      expect(cookie.ingredients).to include("butter")
     end 
 
   end
 
   describe "#mix!" do
     it "shuffles the ingredient array" do 
-      expect(shuffle(cookie.ingredients)).not_to eq(cookie.ingredients)
+      ingredients = ["flour","egg","sugur","butter"]
+      ingredients.each {|ele| cookie.add_ingredient(ele)}
+
+      expect(cookie.ingredients).to eq(ingredients)
+      cookie.mix!
+      expect(cookie.ingredients).not_to eq(ingredients)
+      expect(cookie.ingredients.sort).to eq(ingredients.sort)
     end 
   end
 
@@ -61,7 +67,8 @@ describe Dessert do
 
   describe "#make_more" do
     it "calls bake on the dessert's chef with the dessert passed in" do 
-    expect(chef).to receive(:bake).with(cookie)
+      expect(chef).to receive(:bake).with(cookie)
+      cookie.make_more
     end 
   end
 end

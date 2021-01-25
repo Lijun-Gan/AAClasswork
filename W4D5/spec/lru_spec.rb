@@ -30,6 +30,9 @@ describe LRUCache do
             it "it should get the index of the element" do 
                 expect(@cache.index(ele)).to eq(2)
             end 
+
+            it "not completed"
+            end 
         end 
     end 
 
@@ -45,7 +48,7 @@ describe LRUCache do
 
     describe "#show"
         it "should prints reversed @cache" do 
-            expect(@cache.index(ele)).to eq(2)
+            expect(@cache.reversed).to eq([[1, 2, 3], 5, "I walk the line"])
         end 
     end 
 

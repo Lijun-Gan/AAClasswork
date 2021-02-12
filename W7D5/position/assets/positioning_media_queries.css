@@ -115,9 +115,15 @@ label {
 }
 
 @media all and (max-width: 900px) {
-  /* nav > ul {
+  nav ul {
      display: none;
-   } */
+   }
+
+   .col {
+    min-width: 500px 
+    /* question to ask */
+  }
+
   .hamburger-dropdown {
     display: block 
   }
@@ -128,14 +134,22 @@ label {
     background-size: 50px 50px;
     width: 50px;
     height: 50px;
+    position: relative;
+
   }
 
   .hamburger-dropdown:hover ul { 
-    display: block;
+    display: flex;
     background-color: lightgray;
+    /* position: relative; */ 
+    /* ---question to ask */
+    position: absolute;
+    flex-direction: column;
+    top: 50px;
+    box-shadow: black 5px 5px 10px;
  }
 
- .hamburger-dropdown ul {
-   display: inline;
+ .hamburger-dropdown ul li:hover a {
+   text-decoration: underline;
  }
 }

@@ -73,15 +73,15 @@ Elephant.__proto__.paradeHelper = function(elephant) {
 
 function dinerBreakfast(){
     let order =  ["cheesy scrambled eggs"];
-    console.log(`I'd like ${order.join(" ")} please`)
+    console.log(`I'd like ${order.join(" ")} please`) //why this line cannot moved down to 83?
     return function(newOrder){
         // if (newOrder) {
-        order.push(`and ${newOrder}`)
-        console.log(`I'd like ${order.join(" ")} please`)
-        // };
-    };
- 
-}
+            order.push(`and ${newOrder}`)
+            console.log(`I'd like ${order.join(" ")} please`)
+            // };
+        }
+        
+    }
 
 let bfastOrder = dinerBreakfast();
 bfastOrder("chocolate chip pancakes");

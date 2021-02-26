@@ -7,6 +7,7 @@ function View($el) {
 
 window._randomColorString = function(){
   return '#' + Math.random().toString(16).substr(-6);
+  
 };
 
 View.prototype.exercise0 = function () {

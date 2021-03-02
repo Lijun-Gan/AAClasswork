@@ -153,11 +153,12 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Calculator).call(this, props));
     _this.state = {
       start: 0,
-      num1: "",
-      num2: ""
+      num1: 0,
+      num2: 0
     };
     _this.updateNum1 = _this.updateNum1.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.updateNum2 = _this.updateNum2.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.addNums = _this.addNums.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -169,12 +170,31 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "updateNum2",
+    value: function updateNum2(event) {
+      this.setState({
+        num2: event.currentTarget.value
+      });
+    }
+  }, {
+    key: "addNums",
+    value: function addNums(event) {
+      this.setState({
+        start: this.state.num1 + this.state.num2
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello World"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.start), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.updateNum1,
         value: this.state.num1
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "this is num1: ", this.state.num1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "this is num1: ", this.state.num1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.updateNum2,
+        value: this.state.num2
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "this is num2: ", this.state.num2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.addNums
+      }, "+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.reset
       }, "Reset!"));
     }

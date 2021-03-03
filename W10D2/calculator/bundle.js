@@ -153,18 +153,23 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Calculator).call(this, props));
     _this.state = {
       start: 0,
-      num1: 0,
-      num2: 0
+      num1: "",
+      num2: ""
     };
     _this.updateNum1 = _this.updateNum1.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.updateNum2 = _this.updateNum2.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.resetNum = _this.resetNum.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.addNums = _this.addNums.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.minusNums = _this.minusNums.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.timesNums = _this.timesNums.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.dividesNums = _this.dividesNums.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(Calculator, [{
     key: "updateNum1",
     value: function updateNum1(event) {
+      event.preventDefault();
       this.setState({
         num1: event.currentTarget.value
       });
@@ -172,15 +177,51 @@ function (_React$Component) {
   }, {
     key: "updateNum2",
     value: function updateNum2(event) {
+      event.preventDefault();
       this.setState({
         num2: event.currentTarget.value
       });
     }
   }, {
+    key: "resetNum",
+    value: function resetNum(event) {
+      event.preventDefault();
+      this.setState({
+        start: 0,
+        num1: "",
+        num2: ""
+      });
+    }
+  }, {
     key: "addNums",
     value: function addNums(event) {
+      event.preventDefault();
       this.setState({
-        start: this.state.num1 + this.state.num2
+        start: parseInt(this.state.num1) + parseInt(this.state.num2)
+      });
+    }
+  }, {
+    key: "minusNums",
+    value: function minusNums(event) {
+      event.preventDefault();
+      this.setState({
+        start: parseInt(this.state.num1) - parseInt(this.state.num2)
+      });
+    }
+  }, {
+    key: "timesNums",
+    value: function timesNums(event) {
+      event.preventDefault();
+      this.setState({
+        start: parseInt(this.state.num1) * parseInt(this.state.num2)
+      });
+    }
+  }, {
+    key: "dividesNums",
+    value: function dividesNums(event) {
+      event.preventDefault();
+      this.setState({
+        start: parseInt(this.state.num1) / parseInt(this.state.num2)
       });
     }
   }, {
@@ -189,14 +230,20 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.start), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.updateNum1,
         value: this.state.num1
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "this is num1: ", this.state.num1), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.updateNum2,
         value: this.state.num2
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "this is num2: ", this.state.num2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.resetNum
+      }, "Clear!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.addNums
       }, "+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.reset
-      }, "Reset!"));
+        onClick: this.minusNums
+      }, "-"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.timesNums
+      }, "*"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.dividesNums
+      }, "/"));
     }
   }]);
 

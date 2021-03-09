@@ -1212,7 +1212,7 @@ var addLoggingToDispatch = function addLoggingToDispatch(store) {
     return function (action) {
       console.log(store.getState());
       console.log(action);
-      next(action);
+      return next(action);
       console.log(store.getState());
     };
   };
@@ -1282,8 +1282,9 @@ document.addEventListener('DOMContentLoaded', function () {
 //   })
 // //question1 what's difference between overwrite 
 // // store.dispatch vs store = Object.assign({},store,{dispatch})
-//   return Object.assign({},store,{dispatch})
+// return Object.assign({},store,{dispatch})
 // } 
+/// redux checks to see soemthing changes to see diff object, making a new objects
 //  // phase 2****
 // //***phase 1
 // const addLoggingToDispatch = (store)=>{

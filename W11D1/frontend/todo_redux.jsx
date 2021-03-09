@@ -43,8 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // //question1 what's difference between overwrite 
 // // store.dispatch vs store = Object.assign({},store,{dispatch})
 
-//   return Object.assign({},store,{dispatch})
+  // return Object.assign({},store,{dispatch})
 // } 
+
+/// redux checks to see soemthing changes to see diff object, making a new objects
 
 //  // phase 2****
 

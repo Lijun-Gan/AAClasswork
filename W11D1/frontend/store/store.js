@@ -37,7 +37,7 @@ const configureStore = (preloadedState = {}) => {
 const addLoggingToDispatch = store => next => action => {
   console.log(store.getState());
   console.log(action);
-  next(action);
+  return next(action);
   console.log(store.getState());
 };
  // // Phase 3***:

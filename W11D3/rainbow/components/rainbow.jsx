@@ -20,6 +20,7 @@ class Rainbow extends React.Component {
         <Link to="/blue">Blue</Link>
         <Link to="/green">Green</Link>
         <Link to="/violet">Violet</Link> */}
+
         <NavLink exact to="/red">Red</NavLink>
         <NavLink exact to="/blue">Blue</NavLink>
         <NavLink exact to="/green">Green</NavLink>
